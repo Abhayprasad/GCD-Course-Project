@@ -4,7 +4,7 @@
 rm(list=ls())
 
 ## Setting the working directory to the directory where the data files have been extracted to manually
-setwd("./gcdnov14/getdata-projectfiles-UCI HAR Dataset/UCI HAR Dataset")
+setwd("C:/Users/Abhay Prasad/Documents/gcdnov14/getdata-projectfiles-UCI HAR Dataset/UCI HAR Dataset")
 
 #### Step 1. Merges the training and the test sets to create one data set.
 
@@ -72,10 +72,11 @@ colnames(finalData) <- colNames
 
 finalDataNoActivityType <- finalData[,names(finalData) != 'activityType']
 
-tidyData <- aggregate(finalDataNoActivityType[,names(finalDataNoActivityType) != c('activityId','subjectId')],by=list(activityId=finalDataNoActivityType$activityId,subjectId = finalDataNoActivityType$subjectId),mean)
+tidyDataSet <- aggregate(finalDataNoActivityType[,names(finalDataNoActivityType) != c('activityId','subjectId')],by=list(activityId=finalDataNoActivityType$activityId,subjectId = finalDataNoActivityType$subjectId),mean)
 
 # Merging the tidyData with activityType to include descriptive acitvity names
-tidyData <- merge(tidyData,activityType,by='activityId',all.x=TRUE)
+tidyDataSet <- merge(tidyDataSet,activityType,by='activityId',all.x=TRUE)
 
 # Export the resultant set for this final step 
-write.table(tidyData, './tidyData.txt',row.names=FALSE,sep='\t')
+write.table(tidyDataSet, './tidyDataSet.txt',row.names=FALSE,sep='\t')
+
