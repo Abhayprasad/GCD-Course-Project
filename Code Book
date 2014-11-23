@@ -1,11 +1,42 @@
 # Code Book for Course Project submission for Getting and Cleaning Data
 
 ##Description of the raw data
+
 A full description of raw data can be found on this website: http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones
 
 Transformations on the raw data follow the sequence and processing as defined in the project requirements and are explained below:
- 
-Step 1: Merge the training and the test sets to create one data set.
+The data
+
+The dataset includes the following files:
+
+'README.txt': Readme which shows how to work with the dataset.
+
+'features_info.txt': Shows information about the variables used on the feature vector.
+
+'features.txt': List of all features.
+
+'activity_labels.txt': Links the class labels with their activity name.
+
+'train/X_train.txt': Training dataset.
+
+'train/y_train.txt': Training labels.
+
+'test/X_test.txt': Test dataset.
+
+'test/y_test.txt': Test labels.
+
+The following files are available for the train and test data.
+
+'train/subject_train.txt': Each row identifies the subject who performed the activity for each window sample. Its range is from 1 to 30.
+
+'train/Inertial Signals/total_acc_x_train.txt': The acceleration signal from the smartphone accelerometer X axis in standard gravity units 'g'. Every row shows a 128 element vector. The same description applies for the 'total_acc_x_train.txt' and 'total_acc_z_train.txt' files for the Y and Z axis.
+
+'train/Inertial Signals/body_acc_x_train.txt': The body acceleration signal obtained by subtracting the gravity from the total acceleration.
+
+'train/Inertial Signals/body_gyro_x_train.txt': The angular velocity vector measured by the gyroscope for each window sample. The units are radians/second. 
+
+
+###Step 1: Merge the training and the test sets to create one data set.
 
 The data in the file activity_labels.txt is read into the array activityType. This array is of dimension 2X6 and contains the names of the 6 descriptive activities, as shown below:
 V1	V2
@@ -41,18 +72,18 @@ For each record in the dataset it is provided:
 - An identifier of the subject who carried out the experiment.
 
 
-##Step 2: Extracts only the measurements on the mean and standard deviation for each measurement.
+###Step 2: Extracts only the measurements on the mean and standard deviation for each measurement.
 The grepl function is used to identify and extract columns that pertain to ID, mean() & stddev() columns.
 
 
-##Step 3: Uses descriptive activity names to name the activities in the data set
+###Step 3: Uses descriptive activity names to name the activities in the data set
 Names to columns are allocated to provide descriptive activity names using the names given in activity_labels.txt
 
 
-##Step 4: Appropriately labels the data set with descriptive activity names. Assumption: Descriptive names = descriptive column names. Column names also set in Part 2
+###Step 4: Appropriately labels the data set with descriptive activity names. Assumption: Descriptive names = descriptive column names. Column names also set in Part 2
 The variable names are cleaned up using the gsub function
 
-##Step 5: Creates a second, independent tidy data set with the average of each variable for each activity and each subject.
+###Step 5: Creates a second, independent tidy data set with the average of each variable for each activity and each subject.
 
 A table is created to include just the mean of each variable for each activity and each subject
 
