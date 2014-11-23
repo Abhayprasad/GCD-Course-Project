@@ -1,16 +1,9 @@
-Code Book for Course Project submission for Getting and Cleaning Data
+# Code Book for Course Project submission for Getting and Cleaning Data
 
-Description of the raw data
+##Description of the raw data
 A full description of raw data can be found on this website: http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones
 
-
-
 Transformations on the raw data follow the sequence and processing as defined in the project requirements and are explained below:
- 
-
-
-
- 
  
 Step 1: Merge the training and the test sets to create one data set.
 
@@ -33,12 +26,12 @@ The Test set contains 2947 records
 
 The two sets are merged using the R function - rbind.
 
-The Characteristics: of the data set are: Multivariate, Time-Series
+##The Characteristics: of the data set are
+Multivariate, Time-Series
 Number of Instances: 10299 [That's 7352 records in the Training set plus 2947 records in the test set]
-
 The Number of Attributes: 561
 
-Attribute Information:
+##Attribute Information:
 
 For each record in the dataset it is provided: 
 - Triaxial acceleration from the accelerometer (total acceleration) and the estimated body acceleration. 
@@ -48,18 +41,18 @@ For each record in the dataset it is provided:
 - An identifier of the subject who carried out the experiment.
 
 
-Step 2: Extracts only the measurements on the mean and standard deviation for each measurement.
+##Step 2: Extracts only the measurements on the mean and standard deviation for each measurement.
 The grepl function is used to identify and extract columns that pertain to ID, mean() & stddev() columns.
 
 
-Step 3: Uses descriptive activity names to name the activities in the data set
+##Step 3: Uses descriptive activity names to name the activities in the data set
 Names to columns are allocated to provide descriptive activity names using the names given in activity_labels.txt
 
 
-Step 4: Appropriately labels the data set with descriptive activity names. Assumption: Descriptive names = descriptive column names. Column names also set in Part 2
+##Step 4: Appropriately labels the data set with descriptive activity names. Assumption: Descriptive names = descriptive column names. Column names also set in Part 2
 The variable names are cleaned up using the gsub function
 
-Step 5: Creates a second, independent tidy data set with the average of each variable for each activity and each subject.
+##Step 5: Creates a second, independent tidy data set with the average of each variable for each activity and each subject.
 
 A table is created to include just the mean of each variable for each activity and each subject
 
