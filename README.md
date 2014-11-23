@@ -23,7 +23,9 @@ Step 5: From the data set in step 4, creates a second, independent tidy data set
 
 The raw data is sourced from: https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip
 
-The script run_analysis.R assumes that the data has been downloaded (and unzipped manually). The script starts by setting the working directory to the directory on the local drive where this data has been downloaded. 
+The script run_analysis.R assumes that the data has been downloaded (and unzipped manually). The script starts by setting the working directory to the directory on the local drive where this data has been downloaded.
+
+To run the analysis put the files in your desired location. In R run run_analysis.R (for example by using source(run_analysis.R) with the appropriate path). 
 
 RStudio version 0.98.977 for Window 8 was used to develop the R script. 
 
