@@ -1,4 +1,4 @@
-## Setting the working directory to the directory where the data files have been extracted to manually
+## Setting the working directory to the directory where the data files have been extracted to using the download.file() function and unzipped manually
 setwd("C:/Users/Abhay Prasad/Documents/gcdnov14/getdata-projectfiles-UCI HAR Dataset/UCI HAR Dataset")
 
 #### Step 1. Merges the training and the test sets to create one data set.
@@ -76,4 +76,3 @@ tidyDataSet <- merge(tidyDataSet,activityType,by='activityId',all.x=TRUE)
 
 # Export the resultant set for this final step 
 write.table(tidyDataSet, './tidyDataSet.txt',row.names=FALSE,sep='\t')
-
