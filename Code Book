@@ -7,6 +7,11 @@ A full description of raw data can be found on this website: http://archive.ics.
 
 Transformations on the raw data follow the sequence and processing as defined in the project requirements and are explained below:
  
+
+
+
+ 
+ 
 Step 1: Merge the training and the test sets to create one data set.
 
 The data in the file activity_labels.txt is read into the array activityType. This array is of dimension 2X6 and contains the names of the 6 descriptive activities, as shown below:
@@ -27,6 +32,20 @@ The Training set contains 7352 records
 The Test set contains 2947 records
 
 The two sets are merged using the R function - rbind.
+
+The Characteristics: of the data set are: Multivariate, Time-Series
+Number of Instances: 10299 [That's 7352 records in the Training set plus 2947 records in the test set]
+
+The Number of Attributes: 561
+
+Attribute Information:
+
+For each record in the dataset it is provided: 
+- Triaxial acceleration from the accelerometer (total acceleration) and the estimated body acceleration. 
+- Triaxial Angular velocity from the gyroscope. 
+- A 561-feature vector with time and frequency domain variables. 
+- Its activity label. 
+- An identifier of the subject who carried out the experiment.
 
 
 Step 2: Extracts only the measurements on the mean and standard deviation for each measurement.
