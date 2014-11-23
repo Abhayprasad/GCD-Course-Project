@@ -18,33 +18,34 @@ V1	V2
 5	STANDING
 6	LAYING
 
-The data for Trainingand Test measurements (which in their raw form reside in different files) are read into different variables.
+The data for Training and Test measurements (which in their raw form reside in different files) are read into different variables.
+
+The Train and Test sets are processed to align the column names.
+For both Train and Test sets, the function cbind us used to bring together the data in these three files for Train: y_Train.txt, subject_Train.txt, and x_Train.txt and for Test: y_Test.txt, subject_Test.txt, and x_Test.txt.
 
 The Training set contains 7352 records
+The Test set contains 2947 records
 
-The Train and Test sets are processed to align the column names
-The two sets are then merged using the R function - rbind.
+The two sets are merged using the R function - rbind.
+
 
 Step 2: Extracts only the measurements on the mean and standard deviation for each measurement.
+The grepl function is used to identify and extract columns that pertain to ID, mean() & stddev() columns.
 
-Features indices are read into a matrix[idx,featureName]
-Features are filtered using grep containing "mean" or "std"
-DataSet columns are filtered by indices returned in second step.
-Training/Test activities are read into different variables.
-Merging (making a union) of both sets using rbind.
-Training/Test subjects are read into different variables.
-Merging (making a union) of both sets using rbind.
-Merging measurements,activities,subjects using cbind.
-Part 3: Uses descriptive activity names to name the activities in the data set
 
-Activity column is converted into factor.
-Activity factor is renamed with descriptive activity names.
-Activity column is assigned the descriptive factors.
-Part 4: Appropriately labels the data set with descriptive activity names. Assumption: Descriptive names = descriptive column names. Column names also set in Part 2
+Step 3: Uses descriptive activity names to name the activities in the data set
+Names to columns are allocated to provide descriptive activity names using the names given in activity_labels.txt
 
-Part 5: Creates a second, independent tidy data set with the average of each variable for each activity and each subject.
 
-Data set created above is transformed into a data table.
-Columns are averaged grouping by "Activity" and "subject"
-columns are renamed with a descriptive name: 'mean("measurament")'
-Tidy set is written to a file.
+Step 4: Appropriately labels the data set with descriptive activity names. Assumption: Descriptive names = descriptive column names. Column names also set in Part 2
+The variable names are cleaned up using the gsub function
+
+Step 5: Creates a second, independent tidy data set with the average of each variable for each activity and each subject.
+
+A table is created to include just the mean of each variable for each activity and each subject
+
+Export the tidyDataset 
+
+
+
+

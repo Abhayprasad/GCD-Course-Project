@@ -67,9 +67,9 @@ colnames(finalData) <- colNames
 
 #### Step 5. From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
 
-finalDataNoActivityType <- finalData[,names(finalData) != 'activityType']
+finalDatasansActivityType <- finalData[,names(finalData) != 'activityType']
 
-tidyDataSet <- aggregate(finalDataNoActivityType[,names(finalDataNoActivityType) != c('activityId','subjectId')],by=list(activityId=finalDataNoActivityType$activityId,subjectId = finalDataNoActivityType$subjectId),mean)
+tidyDataSet <- aggregate(finalDatasansActivityType[,names(finalDatasansActivityType) != c('activityId','subjectId')],by=list(activityId=finalDatasansActivityType$activityId,subjectId = finalDatasansActivityType$subjectId),mean)
 
 # Merging the tidyData with activityType to include descriptive acitvity names
 tidyDataSet <- merge(tidyDataSet,activityType,by='activityId',all.x=TRUE)
