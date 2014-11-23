@@ -1,16 +1,13 @@
-
-
-## Initiate by cleaning up the R session workspace. Helps avoid conflicts and errors due to preexisting variables in memory.
-rm(list=ls())
-
 ## Setting the working directory to the directory where the data files have been extracted to manually
 setwd("C:/Users/Abhay Prasad/Documents/gcdnov14/getdata-projectfiles-UCI HAR Dataset/UCI HAR Dataset")
 
 #### Step 1. Merges the training and the test sets to create one data set.
 
-## Read the data from the generic files
+## Read the data from the generic files that are relevant to both the Train and Test sets
 features <- read.table('./features.txt',header=FALSE)
+# The features.txt file contains the names of the 561 parameters.
 activityType <- read.table('./activity_labels.txt',header=FALSE)
+#The data in the file activity_labels.txt is read into the array activityType. This array is of dimension 2X6 and contains the names of the 6 descriptive activities
 
 ## Read the data from the files that pertain to the Training data and allocate names to columns
 subjectTrain <- read.table('./train/subject_train.txt',header=FALSE)

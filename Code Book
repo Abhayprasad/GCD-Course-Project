@@ -1,1 +1,50 @@
 Code Book for Course Project submission for Getting and Cleaning Data
+
+Description of the raw data
+A full description of raw data can be found on this website: http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones
+
+
+
+Transformations on the raw data follow the sequence and processing as defined in the project requirements and are explained below:
+ 
+Step 1: Merge the training and the test sets to create one data set.
+
+The data in the file activity_labels.txt is read into the array activityType. This array is of dimension 2X6 and contains the names of the 6 descriptive activities, as shown below:
+V1	V2
+1	WALKING
+2	WALKING_UPSTAIRS
+3	WALKING_DOWNSTAIRS
+4	SITTING
+5	STANDING
+6	LAYING
+
+The data for Trainingand Test measurements (which in their raw form reside in different files) are read into different variables.
+
+The Training set contains 7352 records
+
+The Train and Test sets are processed to align the column names
+The two sets are then merged using the R function - rbind.
+
+Step 2: Extracts only the measurements on the mean and standard deviation for each measurement.
+
+Features indices are read into a matrix[idx,featureName]
+Features are filtered using grep containing "mean" or "std"
+DataSet columns are filtered by indices returned in second step.
+Training/Test activities are read into different variables.
+Merging (making a union) of both sets using rbind.
+Training/Test subjects are read into different variables.
+Merging (making a union) of both sets using rbind.
+Merging measurements,activities,subjects using cbind.
+Part 3: Uses descriptive activity names to name the activities in the data set
+
+Activity column is converted into factor.
+Activity factor is renamed with descriptive activity names.
+Activity column is assigned the descriptive factors.
+Part 4: Appropriately labels the data set with descriptive activity names. Assumption: Descriptive names = descriptive column names. Column names also set in Part 2
+
+Part 5: Creates a second, independent tidy data set with the average of each variable for each activity and each subject.
+
+Data set created above is transformed into a data table.
+Columns are averaged grouping by "Activity" and "subject"
+columns are renamed with a descriptive name: 'mean("measurament")'
+Tidy set is written to a file.
